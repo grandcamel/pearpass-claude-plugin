@@ -4,42 +4,43 @@ A Claude Code plugin to support developers working on the [PearPass Browser Exte
 
 ## Installation
 
-Add this plugin to your Claude Code configuration:
+### From GitHub
 
 ```bash
-# From the PearPass project directory
-claude plugins add ~/Projects/pearpass-claude-plugin
+claude plugins add https://github.com/grandcamel/pearpass-claude-plugin
 ```
 
-Or add to your `.claude/settings.json`:
+### Local Development
 
-```json
-{
-  "plugins": [
-    "~/Projects/pearpass-claude-plugin"
-  ]
-}
+```bash
+# Clone and install locally
+git clone https://github.com/grandcamel/pearpass-claude-plugin.git
+claude plugins add ./pearpass-claude-plugin
 ```
 
 ## Features
 
-### Skills
+### Skills (Auto-activated)
 
-| Skill | Description |
+Skills automatically activate when you ask related questions:
+
+| Skill | Triggers On |
 |-------|-------------|
-| `pearpass:build` | Build management with Vite multi-config system |
-| `pearpass:test` | Jest testing workflow |
-| `pearpass:extension` | Browser extension development utilities |
+| **build** | "build the extension", "run vite build", "start watch mode" |
+| **test** | "run tests", "npm test", "check coverage" |
+| **extension** | "load extension", "debug manifest", "reload extension" |
 
-### Agents
+### Agents (Task-specific)
 
-| Agent | Description |
-|-------|-------------|
-| `security-reviewer` | Security-focused code review for crypto and extension vulnerabilities |
-| `i18n-helper` | LinguiJS internationalization support |
-| `component-generator` | Generate components following project patterns |
+Agents are invoked for specialized tasks:
 
-### Commands
+| Agent | Use For |
+|-------|---------|
+| **security-reviewer** | Security audits, crypto review, vulnerability checks |
+| **i18n-helper** | Find hardcoded strings, translation validation |
+| **component-generator** | Scaffold React components, content scripts, handlers |
+
+### Commands (Slash commands)
 
 | Command | Description |
 |---------|-------------|
@@ -54,14 +55,10 @@ Or add to your `.claude/settings.json`:
 /pearpass-dev
 ```
 
-### Run Security Review on Staged Changes
+### Run Security Review
 ```
 /pearpass-review
-```
-
-### Review Specific File
-```
-/pearpass-review scope=src/vault/encryption.js
+/pearpass-review scope=src/vault/
 ```
 
 ### Prepare Release
@@ -69,14 +66,41 @@ Or add to your `.claude/settings.json`:
 /pearpass-release version=1.2.0
 ```
 
+### Trigger Agents
+```
+Review this code for security issues
+Find hardcoded strings that need translation
+Create a new React component for password display
+```
+
+## Plugin Structure
+
+```
+pearpass-claude-plugin/
+├── .claude-plugin/
+│   └── plugin.json       # Manifest
+├── skills/
+│   ├── build/SKILL.md    # Vite build guidance
+│   ├── test/SKILL.md     # Jest testing guidance
+│   └── extension/SKILL.md # Extension dev guidance
+├── agents/
+│   ├── security-reviewer.md
+│   ├── i18n-helper.md
+│   └── component-generator.md
+└── commands/
+    ├── pearpass-dev.md
+    ├── pearpass-review.md
+    └── pearpass-release.md
+```
+
 ## PearPass Technology Stack
 
 - **Frontend:** React + Vite (multi-config build)
 - **Styling:** Tailwind CSS
-- **i18n:** LinguiJS
+- **i18n:** LinguiJS (`@lingui/react/macro`, `@lingui/core/macro`)
 - **Testing:** Jest
 - **Crypto:** pearpass-lib-vault
 
 ## License
 
-Apache 2.0 (matching the PearPass project)
+[Apache 2.0](LICENSE)

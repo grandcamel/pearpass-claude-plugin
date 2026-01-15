@@ -1,6 +1,12 @@
 ---
 name: i18n-helper
-description: Internationalization helper for PearPass using LinguiJS. Extract translatable strings, validate translations, find hardcoded text, and generate translation templates.
+description: |
+  Internationalization helper for PearPass using LinguiJS. Extract translatable strings,
+  validate translations, find hardcoded text, and generate translation templates.
+  <example>Find hardcoded strings that need translation</example>
+  <example>Check if all strings are properly translated</example>
+  <example>Help me add i18n to this component</example>
+  <example>Extract strings for translation</example>
 tools:
   - Glob
   - Grep

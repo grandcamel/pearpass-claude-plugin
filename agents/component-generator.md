@@ -1,6 +1,12 @@
 ---
 name: component-generator
-description: Generate React components, content scripts, and background handlers following PearPass patterns and conventions. Use for scaffolding new extension features.
+description: |
+  Generate React components, content scripts, and background handlers following PearPass patterns
+  and conventions. Use for scaffolding new extension features.
+  <example>Create a new React component for password display</example>
+  <example>Generate a content script for form detection</example>
+  <example>Scaffold a background handler for vault sync</example>
+  <example>Create a popup page following project patterns</example>
 tools:
   - Glob
   - Grep
@@ -32,7 +38,7 @@ Always analyze existing code first:
 **Template:**
 ```jsx
 import React from 'react';
-import { Trans } from '@lingui/macro';
+import { Trans } from '@lingui/react/macro'
 
 /**
  * ComponentName - Brief description
@@ -173,7 +179,7 @@ async function saveToStorage(key, value) {
 **Template:**
 ```jsx
 import React, { useState, useEffect } from 'react';
-import { Trans } from '@lingui/macro';
+import { Trans } from '@lingui/react/macro'
 
 export function FeaturePage() {
   const [data, setData] = useState(null);

@@ -1,6 +1,12 @@
 ---
 name: security-reviewer
-description: Security-focused code reviewer for PearPass. Analyzes cryptographic operations, vault handling, password security, and browser extension vulnerabilities. Use when reviewing security-sensitive code changes.
+description: |
+  Security-focused code reviewer for PearPass. Analyzes cryptographic operations, vault handling,
+  password security, and browser extension vulnerabilities.
+  <example>Review this code for security issues</example>
+  <example>Check the vault encryption for vulnerabilities</example>
+  <example>Audit the authentication flow</example>
+  <example>Is this password handling secure?</example>
 tools:
   - Glob
   - Grep

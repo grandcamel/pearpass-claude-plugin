@@ -1,12 +1,14 @@
 ---
 name: extension
-description: Browser extension development utilities for PearPass. Load extension, debug manifest, check permissions, and troubleshoot extension-specific issues.
-user_invocable: true
+description: |
+  Provides guidance for browser extension development tasks in PearPass.
+  Use this skill when the user asks to "load the extension", "debug manifest", "fix extension errors",
+  "reload extension", "check permissions", or troubleshoot Chrome/Firefox/Edge extension issues.
 ---
 
 # PearPass Extension Development Skill
 
-You are helping with browser extension-specific development tasks for PearPass.
+Handle browser extension-specific development tasks for PearPass.
 
 ## Loading the Extension
 

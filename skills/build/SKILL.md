@@ -1,12 +1,14 @@
 ---
 name: build
-description: Build PearPass browser extension with Vite multi-config system. Use for running specific builds (background, content, inject, main), watch mode, or full production builds.
-user_invocable: true
+description: |
+  Provides guidance for building PearPass browser extension with Vite multi-config system.
+  Use this skill when the user asks to "build the extension", "run vite build", "compile pearpass",
+  "start watch mode", or needs help with build configurations (background, content, inject, main).
 ---
 
 # PearPass Build Skill
 
-You are helping build the PearPass browser extension which uses a multi-configuration Vite build system.
+Build the PearPass browser extension using its multi-configuration Vite build system.
 
 ## Build Configurations
 
@@ -49,10 +51,10 @@ npm run build:watch:main
 
 ## Instructions
 
-1. **Determine what the user needs:**
+1. **Determine what is needed:**
    - Full build → Run `npm run build`
    - Development with auto-reload → Run `npm run build:watch`
-   - Specific component → Run the appropriate vite build command
+   - Specific component → Run the appropriate build command
 
 2. **Check for build errors:**
    - TypeScript/JavaScript syntax errors
@@ -61,7 +63,7 @@ npm run build:watch:main
 
 3. **After successful build:**
    - Output is in the `dist/` directory
-   - Remind user to reload the extension in browser if testing
+   - Remind to reload the extension in browser if testing
 
 ## Common Issues
 

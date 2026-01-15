@@ -1,12 +1,14 @@
 ---
 name: test
-description: Run Jest tests for PearPass browser extension. Supports running all tests, specific test files, watch mode, and coverage reports.
-user_invocable: true
+description: |
+  Provides guidance for running Jest tests in PearPass browser extension.
+  Use this skill when the user asks to "run tests", "npm test", "check test coverage",
+  "debug failing tests", or needs help with Jest configuration and test patterns.
 ---
 
 # PearPass Test Skill
 
-You are helping run tests for the PearPass browser extension which uses Jest as its testing framework.
+Run and manage tests for the PearPass browser extension using Jest.
 
 ## Test Commands
 
@@ -42,7 +44,7 @@ npm test -- --onlyChanged
 
 ## Instructions
 
-1. **Determine what the user needs:**
+1. **Determine what is needed:**
    - Run all tests → `npm test`
    - Test specific component → `npm test -- <path>`
    - Development mode → `npm test -- --watch`
@@ -71,8 +73,8 @@ PearPass tests need mocks for:
 
 Tests are typically located:
 - `src/**/*.test.js` - Unit tests alongside source
+- `src/**/*.test.jsx` - React component tests
 - `src/**/*.spec.js` - Integration tests
-- `__tests__/` - Dedicated test directories
 
 ## Coverage Thresholds
 
