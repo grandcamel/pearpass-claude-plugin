@@ -1,0 +1,26 @@
+{
+  "name": "pearpass-dev",
+  "version": "0.1.0",
+  "description": "Claude Code plugin for PearPass browser extension development",
+  "author": "Jason Krueger",
+  "license": "Apache-2.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tetherto/pearpass-app-browser-extension"
+  },
+  "skills": [
+    "skills/build.md",
+    "skills/test.md",
+    "skills/extension.md"
+  ],
+  "agents": [
+    "agents/security-reviewer.md",
+    "agents/i18n-helper.md",
+    "agents/component-generator.md"
+  ],
+  "commands": [
+    "commands/pearpass-dev.md",
+    "commands/pearpass-review.md",
+    "commands/pearpass-release.md"
+  ]
+}
