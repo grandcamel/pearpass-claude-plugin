@@ -18,22 +18,23 @@ You are an internationalization specialist helping maintain translations in Pear
 ## LinguiJS Overview
 
 PearPass uses LinguiJS for internationalization:
-- `@lingui/react` - React components
-- `@lingui/macro` - Compile-time macros
+- `@lingui/react/macro` - React Trans component
+- `@lingui/core/macro` - t macro for strings
 - `@lingui/cli` - Extraction and compilation
+- JSON format for message catalogs (minimal style)
 
 ## Key Commands
 
 ### Extract Messages
 ```bash
-npm run extract
+npm run lingui:extract
 # or
 npx lingui extract
 ```
 
 ### Compile Messages
 ```bash
-npm run compile
+npm run lingui:compile
 # or
 npx lingui compile
 ```
@@ -42,7 +43,7 @@ npx lingui compile
 
 ### Using Trans Component
 ```jsx
-import { Trans } from '@lingui/macro';
+import { Trans } from '@lingui/react/macro'
 
 // Simple text
 <Trans>Welcome to PearPass</Trans>
@@ -56,28 +57,30 @@ import { Trans } from '@lingui/macro';
 
 ### Using t Macro
 ```jsx
-import { t } from '@lingui/macro';
+import { t } from '@lingui/core/macro'
 
 // In JavaScript
-const message = t`Password saved successfully`;
+const message = t`Password saved successfully`
 
 // With variables
-const greeting = t`Hello, ${name}`;
+const greeting = t`Hello, ${name}`
 
-// Plurals
-const items = plural(count, {
-  one: '# item',
-  other: '# items'
-});
+// In component props
+<Input placeholder={t`Enter password`} />
 ```
 
-### Using useLingui Hook
+### Combined Usage
 ```jsx
-import { useLingui } from '@lingui/react';
+import { t } from '@lingui/core/macro'
+import { Trans } from '@lingui/react/macro'
 
 function Component() {
-  const { i18n } = useLingui();
-  return <span>{i18n._(t`Translated text`)}</span>;
+  return (
+    <div>
+      <Trans>Static text</Trans>
+      <Input placeholder={t`Dynamic placeholder`} />
+    </div>
+  )
 }
 ```
 
@@ -121,27 +124,28 @@ For new translatable strings:
 ### 4. Translation File Structure
 
 ```
-locales/
+src/locales/
 ├── en/
-│   └── messages.po    # English (source)
+│   └── messages.json  # English (source)
 ├── es/
-│   └── messages.po    # Spanish
-├── fr/
-│   └── messages.po    # French
-└── lingui.config.js   # Configuration
+│   └── messages.json  # Spanish (if added)
+└── lingui.config.js   # Configuration (in project root)
 ```
+
+**Note:** PearPass uses JSON format with minimal style, not .po files.
 
 ## Common Issues
 
 ### Missing Extraction
-**Problem:** New strings not appearing in .po files
-**Solution:** Ensure strings use macros, not plain strings
+**Problem:** New strings not appearing in messages.json
+**Solution:** Ensure strings use macros with correct imports
 
 ```jsx
 // Won't be extracted
 <button>Save</button>
 
 // Will be extracted
+import { Trans } from '@lingui/react/macro'
 <button><Trans>Save</Trans></button>
 ```
 

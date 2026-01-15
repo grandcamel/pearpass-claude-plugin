@@ -33,10 +33,18 @@ npm run build:watch
 
 ### Build Specific Configuration
 ```bash
-npx vite build --config vite.config.background.js
-npx vite build --config vite.config.content.js
-npx vite build --config vite.config.inject.js
-npx vite build --config vite.config.main.js
+npm run build:background
+npm run build:content
+npm run build:inject
+npm run build:main
+```
+
+### Watch Specific Configuration
+```bash
+npm run build:watch:background
+npm run build:watch:content
+npm run build:watch:inject
+npm run build:watch:main
 ```
 
 ## Instructions
@@ -67,5 +75,9 @@ All builds output to `dist/` directory:
 - `dist/background.js` - Background service worker
 - `dist/content.js` - Content scripts
 - `dist/inject.js` - Injection scripts
-- `dist/popup/` - Popup UI
+- `dist/action.js` - Popup action UI
+- `dist/index.html` - Main popup HTML
 - `dist/manifest.json` - Extension manifest
+- `dist/assets/` - Bundled assets
+
+**Note:** Full build also runs `lingui:extract` and `lingui:compile` first.
