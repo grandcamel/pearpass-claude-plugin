@@ -4,7 +4,17 @@ A Claude Code plugin to support developers working on the [PearPass Browser Exte
 
 ## Installation
 
-### From GitHub
+### From Marketplace (Recommended)
+
+```bash
+# Add the marketplace
+/plugin marketplace add grandcamel/pearpass-claude-plugin
+
+# Install the plugin
+/plugin install pearpass-dev@grandcamel/pearpass-claude-plugin
+```
+
+### Direct from GitHub
 
 ```bash
 claude plugins add https://github.com/grandcamel/pearpass-claude-plugin

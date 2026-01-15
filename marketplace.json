@@ -1,0 +1,28 @@
+{
+  "name": "PearPass Development Tools",
+  "description": "Claude Code plugins for PearPass browser extension development",
+  "author": {
+    "name": "Jason Krueger",
+    "url": "https://github.com/grandcamel"
+  },
+  "plugins": [
+    {
+      "name": "pearpass-dev",
+      "description": "Build management, testing, security review, i18n support, and component generation for PearPass browser extension development",
+      "version": "0.2.0",
+      "source": {
+        "type": "git",
+        "url": "https://github.com/grandcamel/pearpass-claude-plugin"
+      },
+      "keywords": [
+        "pearpass",
+        "browser-extension",
+        "password-manager",
+        "vite",
+        "react",
+        "security"
+      ],
+      "license": "Apache-2.0"
+    }
+  ]
+}
